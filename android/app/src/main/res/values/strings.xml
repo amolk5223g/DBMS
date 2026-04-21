@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">AttendlyPro</string>
+    <string name="title_activity_main">AttendlyPro</string>
+    <string name="package_name">com.attendly.pro</string>
+    <string name="custom_url_scheme">com.attendly.pro</string>
+</resources>
