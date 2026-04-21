@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cloud White — light, airy SaaS neumorphic */
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 215 25% 90%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 214 25% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 25% 88%;
+    --input: 214 25% 88%;
+    --ring: 217 91% 60%;
+
+    --radius: 1rem;
+
+    --aurora-green: 217 91% 60%;
+    --aurora-violet: 215 20% 65%;
+    --aurora-cyan: 210 40% 80%;
+
+    --gradient-aurora: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(210 90% 70%) 50%, hsl(215 30% 75%) 100%);
+    --gradient-bg: radial-gradient(ellipse at top left, hsl(217 91% 90% / 0.6), transparent 50%),
+                   radial-gradient(ellipse at bottom right, hsl(210 40% 88% / 0.6), transparent 50%),
+                   linear-gradient(180deg, hsl(210 20% 99%), hsl(214 25% 96%));
+    --shadow-glass: 0 8px 32px hsl(215 25% 60% / 0.12), inset 0 1px 0 hsl(0 0% 100% / 0.6);
+    --shadow-elevated: 0 20px 60px -10px hsl(217 91% 50% / 0.25), 0 8px 20px hsl(215 25% 60% / 0.15);
+    --shadow-press: inset 0 4px 12px hsl(215 25% 60% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 232 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: hsl(var(--card) / 0.55);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid hsl(0 0% 100% / 0.08);
+    box-shadow: var(--shadow-glass);
+    transform-style: preserve-3d;
+  }
+  .glass-panel {
+    background: hsl(var(--card) / 0.4);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.06);
+  }
+  .aurora-text {
+    background: var(--gradient-aurora);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .aurora-bg {
+    background: var(--gradient-aurora);
+  }
+  .neu-fab {
+    background: var(--gradient-aurora);
+    box-shadow: var(--shadow-elevated);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .neu-fab:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: var(--shadow-press);
+  }
+  .perspective-scene {
+    perspective: 1200px;
+  }
+}
